@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Activity, ArrowRight, ArrowLeft, User, ClipboardList, Stethoscope, Clock, ShieldCheck, Clipboard, Phone, Building2, Check, CheckCircle2, Users, AlertTriangle, Lock, Mail, Play, StopCircle, SkipForward, AlertCircle, Timer, BarChart2, CalendarDays, Trash2, X, Bell, UserMinus
 } from "lucide-react";
@@ -73,10 +74,10 @@ function Navbar({ onLogoClick }: { onLogoClick: () => void }) {
   return (
     <nav className="flex items-center justify-between px-8 py-5 max-w-7xl mx-auto">
       <button onClick={onLogoClick} className="flex items-center gap-2.5 cursor-pointer">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#004b87] to-[#00a651] flex items-center justify-center text-white font-bold text-lg shadow-lg">
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#22d3ee] to-[#34d399] flex items-center justify-center text-white font-bold text-lg shadow-lg">
           M
         </div>
-        <span className="text-xl font-bold tracking-tight text-[#004b87]">MediQueue</span>
+        <span className="text-xl font-bold tracking-tight text-[#22d3ee]">MediQueue</span>
       </button>
 
     </nav>
@@ -92,21 +93,21 @@ function LandingPage({ onNavigate }: { onNavigate: (page: string) => void }) {
       <main className="max-w-7xl mx-auto px-8 w-full mt-12 md:mt-24 mb-32">
         {/* Hero */}
         <section className="flex flex-col items-center text-center max-w-4xl mx-auto mb-32 relative">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#004b87]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#00a651]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#22d3ee]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#34d399]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-100 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-sm font-medium text-slate-600 mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/40 backdrop-blur-xl border border-white/10 border border-white/10 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-sm font-medium text-slate-300 mb-8">
             <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00a651] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00a651]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34d399] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#34d399]"></span>
             </span>
             Live Status: Operational
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-8 leading-[1.1]">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#004b87] to-[#0073cc]">Smart</span> Queue Management
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-8 leading-[1.1]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22d3ee] to-[#0073cc]">Smart</span> Queue Management
           </h1>
-          <p className="text-lg md:text-xl text-slate-500 mb-10 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed">
             Eliminate waiting room chaos. Our intelligent routing and prediction system brings seamless patient flow to modern healthcare facilities.
           </p>
         </section>
@@ -116,15 +117,15 @@ function LandingPage({ onNavigate }: { onNavigate: (page: string) => void }) {
           {/* Patient Login */}
           <div
             onClick={() => onNavigate("patient-login")}
-            className="group bg-white rounded-3xl p-8 border border-white transition-all duration-500 hover:-translate-y-3 cursor-pointer shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_50px_-10px_rgba(0,75,135,0.15)] hover:border-[#004b87]/10 flex flex-col items-start relative overflow-hidden"
+            className="group bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 border border-white transition-all duration-500 hover:-translate-y-3 cursor-pointer shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_50px_-10px_rgba(34,211,238,0.15)] hover:border-[#22d3ee]/10 flex flex-col items-start relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-500 group-hover:scale-150 z-0"></div>
             <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mb-8 relative z-10 shadow-sm border border-blue-100">
               <User className="w-8 h-8 text-[#0073cc]" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-3 relative z-10">Patient Login</h3>
-            <p className="text-slate-500 mb-6 font-medium relative z-10">Book & Track</p>
-            <p className="text-slate-600 mb-8 leading-relaxed relative z-10 hidden md:block">
+            <h3 className="text-2xl font-bold text-white mb-3 relative z-10">Patient Login</h3>
+            <p className="text-slate-400 mb-6 font-medium relative z-10">Book & Track</p>
+            <p className="text-slate-300 mb-8 leading-relaxed relative z-10 hidden md:block">
               Empower patients with live queue updates, estimated wait times, and easy mobile check-ins.
             </p>
             <div className="mt-auto flex items-center text-[#0073cc] font-semibold relative z-10 group-hover:gap-2 transition-all">
@@ -136,18 +137,18 @@ function LandingPage({ onNavigate }: { onNavigate: (page: string) => void }) {
           {/* Staff Login */}
           <div
             onClick={() => onNavigate("staff-login")}
-            className="group bg-white rounded-3xl p-8 border border-slate-100 transition-all duration-500 hover:-translate-y-3 cursor-pointer shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_50px_-10px_rgba(0,166,81,0.15)] flex flex-col items-start relative overflow-hidden md:-mt-8"
+            className="group bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 border border-white/10 transition-all duration-500 hover:-translate-y-3 cursor-pointer shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_50px_-10px_rgba(52,211,153,0.15)] flex flex-col items-start relative overflow-hidden md:-mt-8"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-500 group-hover:scale-150 z-0"></div>
-            <div className="w-16 h-16 rounded-2xl bg-[#00a651]/10 flex items-center justify-center mb-8 relative z-10 shadow-sm border border-[#00a651]/20">
-              <ClipboardList className="w-8 h-8 text-[#00a651]" />
+            <div className="w-16 h-16 rounded-2xl bg-[#34d399]/10 flex items-center justify-center mb-8 relative z-10 shadow-sm border border-[#34d399]/20">
+              <ClipboardList className="w-8 h-8 text-[#34d399]" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-3 relative z-10">Receptionist Login</h3>
-            <p className="text-slate-500 mb-6 font-medium relative z-10">Register Walk-ins</p>
-            <p className="text-slate-600 mb-8 leading-relaxed relative z-10 hidden md:block">
+            <h3 className="text-2xl font-bold text-white mb-3 relative z-10">Receptionist Login</h3>
+            <p className="text-slate-400 mb-6 font-medium relative z-10">Register Walk-ins</p>
+            <p className="text-slate-300 mb-8 leading-relaxed relative z-10 hidden md:block">
               Rapid intake workflows for frontline staff to seamlessly add walk-in patients into the prediction algorithm.
             </p>
-            <div className="mt-auto flex items-center text-[#00a651] font-semibold relative z-10 group-hover:gap-2 transition-all">
+            <div className="mt-auto flex items-center text-[#34d399] font-semibold relative z-10 group-hover:gap-2 transition-all">
               <span>View Tools</span>
               <ArrowRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
             </div>
@@ -156,15 +157,15 @@ function LandingPage({ onNavigate }: { onNavigate: (page: string) => void }) {
           {/* Doctor Dashboard */}
           <div
             onClick={() => onNavigate("doctor-login")}
-            className="group bg-white rounded-3xl p-8 border border-white transition-all duration-500 hover:-translate-y-3 cursor-pointer shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_50px_-10px_rgba(0,35,85,0.15)] hover:border-[#002355]/10 flex flex-col items-start relative overflow-hidden"
+            className="group bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 border border-white transition-all duration-500 hover:-translate-y-3 cursor-pointer shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_50px_-10px_rgba(0,35,85,0.15)] hover:border-[#002355]/10 flex flex-col items-start relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-500 group-hover:scale-150 z-0"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-slate-800/40 border border-white/5 rounded-bl-full -mr-10 -mt-10 transition-transform duration-500 group-hover:scale-150 z-0"></div>
             <div className="w-16 h-16 rounded-2xl bg-[#002b5e]/5 flex items-center justify-center mb-8 relative z-10 shadow-sm border border-[#002b5e]/10">
               <Stethoscope className="w-8 h-8 text-[#002b5e]" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-3 relative z-10">Doctor Dashboard</h3>
-            <p className="text-slate-500 mb-6 font-medium relative z-10">Manage Queue</p>
-            <p className="text-slate-600 mb-8 leading-relaxed relative z-10 hidden md:block">
+            <h3 className="text-2xl font-bold text-white mb-3 relative z-10">Doctor Dashboard</h3>
+            <p className="text-slate-400 mb-6 font-medium relative z-10">Manage Queue</p>
+            <p className="text-slate-300 mb-8 leading-relaxed relative z-10 hidden md:block">
               A bird's-eye view of your waiting room, enabling clinicians to prioritize urgent cases intuitively.
             </p>
             <div className="mt-auto flex items-center text-[#002b5e] font-semibold relative z-10 group-hover:gap-2 transition-all">
@@ -177,23 +178,23 @@ function LandingPage({ onNavigate }: { onNavigate: (page: string) => void }) {
         {/* How it Works */}
         <section className="py-20 flex flex-col items-center">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">How it Works</h2>
-            <p className="text-slate-500 text-lg max-w-xl mx-auto">Three simple steps to transform your clinic's patient experience.</p>
+            <h2 className="text-4xl font-bold text-white mb-4">How it Works</h2>
+            <p className="text-slate-400 text-lg max-w-xl mx-auto">Three simple steps to transform your clinic's patient experience.</p>
           </div>
           <div className="flex flex-col md:flex-row gap-8 items-center justify-center w-full max-w-5xl relative">
             <div className="hidden md:block absolute top-[60px] left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent -z-10"></div>
             {[
-              { icon: Clipboard, title: "Register", desc: "Patients book online or check-in at the front desk kiosks in seconds.", color: "#004b87", num: 1 },
-              { icon: Activity, title: "Predict", desc: "Our AI algorithm calculates live exact wait times and notifies patients automatically.", color: "#00a651", num: 2 },
+              { icon: Clipboard, title: "Register", desc: "Patients book online or check-in at the front desk kiosks in seconds.", color: "#22d3ee", num: 1 },
+              { icon: Activity, title: "Predict", desc: "Our AI algorithm calculates live exact wait times and notifies patients automatically.", color: "#34d399", num: 2 },
               { icon: ShieldCheck, title: "Consult", desc: "Doctors see patient info via the dashboard, ensuring a targeted and prompt consultation.", color: "#002b5e", num: 3 },
             ].map((s) => (
-              <div key={s.num} className="flex flex-col items-center text-center max-w-xs relative bg-white p-6 rounded-3xl transition-transform hover:-translate-y-2 z-10">
-                <div className="w-20 h-20 rounded-2xl bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex items-center justify-center mb-6 border border-slate-50 relative">
+              <div key={s.num} className="flex flex-col items-center text-center max-w-xs relative bg-slate-900/40 backdrop-blur-xl border border-white/10 p-6 rounded-3xl transition-transform hover:-translate-y-2 z-10">
+                <div className="w-20 h-20 rounded-2xl bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex items-center justify-center mb-6 border border-white/5 relative">
                   <div className="absolute -top-3 -right-3 w-8 h-8 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md" style={{ backgroundColor: s.color }}>{s.num}</div>
                   <s.icon className="w-10 h-10" style={{ color: s.color }} />
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-2">{s.title}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
+                <h4 className="text-xl font-bold text-white mb-2">{s.title}</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -229,11 +230,11 @@ function PhoneInput({ value, onChange }: { value: string; onChange: (val: string
 
   return (
     <div className="relative flex">
-      <div className="absolute left-0 top-0 bottom-0 flex items-center pr-2 border-r border-slate-200 bg-slate-50/50 rounded-l-xl z-10 w-[105px]">
+      <div className="absolute left-0 top-0 bottom-0 flex items-center pr-2 border-r border-white/10 bg-slate-800/40 border border-white/5 rounded-l-xl z-10 w-[105px]">
         <select
           value={countryCode}
           onChange={(e) => setCountryCode(e.target.value)}
-          className="w-full h-full pl-3 pr-6 py-3.5 bg-transparent text-sm text-slate-800 font-semibold focus:outline-none appearance-none cursor-pointer"
+          className="w-full h-full pl-3 pr-6 py-3.5 bg-transparent text-sm text-slate-100 font-semibold focus:outline-none appearance-none cursor-pointer"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
             backgroundPosition: "right 0.2rem center",
@@ -253,7 +254,7 @@ function PhoneInput({ value, onChange }: { value: string; onChange: (val: string
         placeholder="98765 43210"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
-        className="w-full pl-[7.2rem] pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 focus:border-[#004b87] transition-all"
+        className="w-full pl-[7.2rem] pr-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 focus:border-[#22d3ee] transition-all"
       />
     </div>
   );
@@ -307,29 +308,29 @@ function PatientLoginPage({ onLogin, onBack }: { onLogin: (phone: string) => voi
     <main className="max-w-7xl mx-auto px-8 flex items-center justify-center" style={{ minHeight: "calc(100vh - 180px)" }}>
       <div className="relative w-full max-w-md">
         {/* Decorative blobs */}
-        <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#004b87]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-        <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#00a651]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+        <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#22d3ee]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+        <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#34d399]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
-        <div className="bg-white rounded-2xl p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100/80">
+        <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white/10">
           {/* Header */}
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#004b87] to-[#0073cc] flex items-center justify-center shadow-md">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#22d3ee] to-[#0073cc] flex items-center justify-center shadow-md">
               <User className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-slate-900">Patient Login</h2>
+              <h2 className="text-xl font-bold text-white">Patient Login</h2>
               <p className="text-sm text-slate-400">
                 {step === "phone" ? "Access your queue & appointments" : "We've sent a code to your phone"}
               </p>
             </div>
           </div>
 
-          <div className="w-full h-px bg-slate-100 my-6"></div>
+          <div className="w-full h-px bg-slate-800/60 my-6"></div>
 
           {step === "phone" ? (
             <div className="space-y-5">
               <div>
-                <label className="block text-sm font-semibold text-slate-600 mb-2">Phone Number</label>
+                <label className="block text-sm font-semibold text-slate-300 mb-2">Phone Number</label>
                 <PhoneInput value={phone} onChange={(val) => { setPhone(val); setErrorMsg(""); }} />
                 {errorMsg && <p className="text-red-500 text-xs font-semibold mt-2 text-center">{errorMsg}</p>}
               </div>
@@ -338,8 +339,8 @@ function PatientLoginPage({ onLogin, onBack }: { onLogin: (phone: string) => voi
                 onClick={handleSendOtp}
                 disabled={!isPhoneValid || isLoading}
                 className={`w-full mt-6 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${isPhoneValid
-                  ? "bg-[#004b87] text-white shadow-[0_10px_30px_rgba(0,75,135,0.25)] hover:shadow-[0_15px_40px_rgba(0,75,135,0.35)] hover:-translate-y-0.5 cursor-pointer"
-                  : "bg-slate-200 text-slate-400 cursor-not-allowed"
+                  ? "bg-[#22d3ee] text-white shadow-[0_10px_30px_rgba(34,211,238,0.25)] hover:shadow-[0_15px_40px_rgba(34,211,238,0.35)] hover:-translate-y-0.5 cursor-pointer"
+                  : "bg-slate-700/60 text-slate-400 cursor-not-allowed"
                   }`}
               >
                 {isLoading ? "Sending..." : "Send OTP"}
@@ -350,8 +351,8 @@ function PatientLoginPage({ onLogin, onBack }: { onLogin: (phone: string) => voi
             <div className="space-y-5">
               <div>
                 <div className="flex justify-between items-end mb-2">
-                  <label className="block text-sm font-semibold text-slate-600">6-Digit OTP</label>
-                  <button onClick={() => setStep("phone")} className="text-xs text-[#004b87] font-semibold hover:underline cursor-pointer">Change Number</button>
+                  <label className="block text-sm font-semibold text-slate-300">6-Digit OTP</label>
+                  <button onClick={() => setStep("phone")} className="text-xs text-[#22d3ee] font-semibold hover:underline cursor-pointer">Change Number</button>
                 </div>
                 <div className="relative">
                   <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -361,7 +362,7 @@ function PatientLoginPage({ onLogin, onBack }: { onLogin: (phone: string) => voi
                     placeholder="Enter 6-digit code"
                     value={otp}
                     onChange={(e) => { setOtp(e.target.value.replace(/\D/g, '')); setErrorMsg(""); }}
-                    className={`w-full pl-11 pr-4 py-3.5 rounded-xl border ${errorMsg ? 'border-red-400 ring-2 ring-red-400/20' : 'border-slate-200'} bg-slate-50/50 text-sm text-slate-800 tracking-widest placeholder:tracking-normal placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 focus:border-[#004b87] transition-all text-center`}
+                    className={`w-full pl-11 pr-4 py-3.5 rounded-xl border ${errorMsg ? 'border-red-400 ring-2 ring-red-400/20' : 'border-white/10'} bg-slate-800/40 border border-white/5 text-sm text-slate-100 tracking-widest placeholder:tracking-normal placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 focus:border-[#22d3ee] transition-all text-center`}
                   />
                   {errorMsg && <p className="text-red-500 text-xs font-semibold mt-2 absolute -bottom-6 w-full text-center">{errorMsg}</p>}
                 </div>
@@ -371,8 +372,8 @@ function PatientLoginPage({ onLogin, onBack }: { onLogin: (phone: string) => voi
                 onClick={handleVerifyOtp}
                 disabled={!isOtpValid || isLoading}
                 className={`w-full mt-6 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${isOtpValid
-                  ? "bg-[#00a651] text-white shadow-[0_10px_30px_rgba(0,166,81,0.25)] hover:shadow-[0_15px_40px_rgba(0,166,81,0.35)] hover:-translate-y-0.5 cursor-pointer"
-                  : "bg-slate-200 text-slate-400 cursor-not-allowed"
+                  ? "bg-[#34d399] text-white shadow-[0_10px_30px_rgba(52,211,153,0.25)] hover:shadow-[0_15px_40px_rgba(52,211,153,0.35)] hover:-translate-y-0.5 cursor-pointer"
+                  : "bg-slate-700/60 text-slate-400 cursor-not-allowed"
                   }`}
               >
                 {isLoading ? "Verifying..." : "Verify & Login"}
@@ -380,7 +381,7 @@ function PatientLoginPage({ onLogin, onBack }: { onLogin: (phone: string) => voi
               </button>
 
               <div className="text-center mt-4">
-                <button className="text-xs text-slate-500 font-medium hover:text-[#004b87] transition-colors cursor-pointer">
+                <button className="text-xs text-slate-400 font-medium hover:text-[#22d3ee] transition-colors cursor-pointer">
                   Resend OTP
                 </button>
               </div>
@@ -390,7 +391,7 @@ function PatientLoginPage({ onLogin, onBack }: { onLogin: (phone: string) => voi
           {step === "phone" && (
             <p className="text-center text-sm text-slate-400 mt-6">
               New patient?{" "}
-              <button onClick={() => onLogin(phone)} className="text-[#00a651] font-semibold hover:underline cursor-pointer">
+              <button onClick={() => onLogin(phone)} className="text-[#34d399] font-semibold hover:underline cursor-pointer">
                 Register here
               </button>
             </p>
@@ -399,7 +400,7 @@ function PatientLoginPage({ onLogin, onBack }: { onLogin: (phone: string) => voi
 
         {/* Back to home */}
         <div className="flex justify-center mt-6">
-          <button onClick={onBack} className="flex items-center gap-2 text-sm text-slate-500 font-semibold hover:text-[#004b87] transition-colors cursor-pointer">
+          <button onClick={onBack} className="flex items-center gap-2 text-sm text-slate-400 font-semibold hover:text-[#22d3ee] transition-colors cursor-pointer">
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </button>
@@ -425,20 +426,20 @@ function Stepper({ step }: { step: number }) {
             <div className="flex flex-col items-center gap-2 min-w-[120px]">
               <div
                 className={`w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-500 ${isDone
-                  ? "bg-[#00a651] text-white shadow-[0_6px_20px_rgba(0,166,81,0.35)]"
+                  ? "bg-[#34d399] text-white shadow-[0_6px_20px_rgba(52,211,153,0.35)]"
                   : isActive
-                    ? "bg-[#004b87] text-white shadow-[0_6px_20px_rgba(0,75,135,0.35)]"
-                    : "bg-slate-100 text-slate-400"
+                    ? "bg-[#22d3ee] text-white shadow-[0_6px_20px_rgba(34,211,238,0.35)]"
+                    : "bg-slate-800/60 text-slate-400"
                   }`}
               >
                 {isDone ? <Check className="w-5 h-5" /> : num}
               </div>
-              <span className={`text-xs font-semibold tracking-wide transition-colors ${isActive ? "text-[#004b87]" : isDone ? "text-[#00a651]" : "text-slate-400"}`}>
+              <span className={`text-xs font-semibold tracking-wide transition-colors ${isActive ? "text-[#22d3ee]" : isDone ? "text-[#34d399]" : "text-slate-400"}`}>
                 {label}
               </span>
             </div>
             {i < steps.length - 1 && (
-              <div className={`w-16 h-[2px] rounded-full mx-1 -mt-6 transition-colors duration-500 ${step > num ? "bg-[#00a651]" : "bg-slate-200"}`} />
+              <div className={`w-16 h-[2px] rounded-full mx-1 -mt-6 transition-colors duration-500 ${step > num ? "bg-[#34d399]" : "bg-slate-700/60"}`} />
             )}
           </div>
         );
@@ -462,46 +463,46 @@ function Registration({
   const isValid = form.name.trim() && form.phone.trim() && form.age.trim() && form.sex && form.department && form.date && form.timeSlot;
   return (
     <div className="flex justify-center">
-      <div className="w-full max-w-lg bg-white rounded-2xl p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100/80">
+      <div className="w-full max-w-lg bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white/10">
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-10 h-10 rounded-xl bg-[#004b87]/10 flex items-center justify-center">
-            <Building2 className="w-5 h-5 text-[#004b87]" />
+          <div className="w-10 h-10 rounded-xl bg-[#22d3ee]/10 flex items-center justify-center">
+            <Building2 className="w-5 h-5 text-[#22d3ee]" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-slate-900">Patient Registration</h2>
+            <h2 className="text-xl font-bold text-white">Patient Registration</h2>
             <p className="text-sm text-slate-400">Fill in your details to begin</p>
           </div>
         </div>
         <div className="space-y-5">
           <div>
-            <label className="block text-sm font-semibold text-slate-600 mb-2">Full Name</label>
+            <label className="block text-sm font-semibold text-slate-300 mb-2">Full Name</label>
             <div className="relative">
               <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input type="text" placeholder="Enter your full name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 focus:border-[#004b87] transition-all" />
+                className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 focus:border-[#22d3ee] transition-all" />
             </div>
           </div>
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <label className="block text-sm font-semibold text-slate-600">Phone Number</label>
+              <label className="block text-sm font-semibold text-slate-300">Phone Number</label>
               <span className="text-[10px] font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1"><ShieldCheck className="w-3 h-3" /> Verified</span>
             </div>
             <div className="relative opacity-80 cursor-not-allowed">
               <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input type="tel" value={form.phone} disabled
-                className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-100 text-sm text-slate-500 font-semibold cursor-not-allowed focus:outline-none" />
+                className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/60 text-sm text-slate-400 font-semibold cursor-not-allowed focus:outline-none" />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-slate-600 mb-2">Age</label>
+              <label className="block text-sm font-semibold text-slate-300 mb-2">Age</label>
               <input type="number" placeholder="Years" value={form.age} onChange={(e) => setForm({ ...form, age: e.target.value })} min={0}
-                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 focus:border-[#004b87] transition-all" />
+                className="w-full px-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 focus:border-[#22d3ee] transition-all" />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-600 mb-2">Sex</label>
+              <label className="block text-sm font-semibold text-slate-300 mb-2">Sex</label>
               <select value={form.sex} onChange={(e) => setForm({ ...form, sex: e.target.value })}
-                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 focus:border-[#004b87] transition-all appearance-none cursor-pointer">
+                className="w-full px-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 focus:border-[#22d3ee] transition-all appearance-none cursor-pointer">
                 <option value="">Select</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -510,11 +511,11 @@ function Registration({
             </div>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-slate-600 mb-2">Consultation Department</label>
+            <label className="block text-sm font-semibold text-slate-300 mb-2">Consultation Department</label>
             <div className="relative">
               <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <select value={form.department} onChange={(e) => setForm({ ...form, department: e.target.value })}
-                className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 focus:border-[#004b87] transition-all appearance-none cursor-pointer">
+                className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 focus:border-[#22d3ee] transition-all appearance-none cursor-pointer">
                 <option value="">Select department</option>
                 {DEPARTMENTS.map((d) => (<option key={d} value={d}>{d}</option>))}
               </select>
@@ -522,14 +523,14 @@ function Registration({
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-slate-600 mb-2">Preferred Date</label>
+              <label className="block text-sm font-semibold text-slate-300 mb-2">Preferred Date</label>
               <input type="date" value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })}
-                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 focus:border-[#004b87] transition-all cursor-pointer" />
+                className="w-full px-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 focus:border-[#22d3ee] transition-all cursor-pointer" />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-600 mb-2">Time Slot</label>
+              <label className="block text-sm font-semibold text-slate-300 mb-2">Time Slot</label>
               <select value={form.timeSlot} onChange={(e) => setForm({ ...form, timeSlot: e.target.value })}
-                className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 focus:border-[#004b87] transition-all appearance-none cursor-pointer">
+                className="w-full px-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 focus:border-[#22d3ee] transition-all appearance-none cursor-pointer">
                 <option value="">Select time</option>
                 <option value="09:00 AM - 11:00 AM">09:00 AM - 11:00 AM</option>
                 <option value="11:00 AM - 01:00 PM">11:00 AM - 01:00 PM</option>
@@ -539,13 +540,13 @@ function Registration({
             </div>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-slate-600 mb-2">Brief Description (Optional)</label>
+            <label className="block text-sm font-semibold text-slate-300 mb-2">Brief Description (Optional)</label>
             <textarea placeholder="Describe your symptoms or reason for visit..." value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} rows={3}
-              className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 focus:border-[#004b87] transition-all resize-none" />
+              className="w-full px-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 focus:border-[#22d3ee] transition-all resize-none" />
           </div>
         </div>
         <button onClick={onNext} disabled={!isValid}
-          className={`w-full mt-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${isValid ? "bg-[#004b87] text-white shadow-[0_10px_30px_rgba(0,75,135,0.25)] hover:shadow-[0_15px_40px_rgba(0,75,135,0.35)] hover:-translate-y-0.5 cursor-pointer" : "bg-slate-200 text-slate-400 cursor-not-allowed"}`}>
+          className={`w-full mt-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${isValid ? "bg-[#22d3ee] text-white shadow-[0_10px_30px_rgba(34,211,238,0.25)] hover:shadow-[0_15px_40px_rgba(34,211,238,0.35)] hover:-translate-y-0.5 cursor-pointer" : "bg-slate-700/60 text-slate-400 cursor-not-allowed"}`}>
           Next Step <ArrowRight className="w-4 h-4" />
         </button>
       </div>
@@ -562,11 +563,11 @@ function DoctorSelection({ selectedDoctor, setSelectedDoctor, onNext, onBack }: 
   return (
     <div className="max-w-4xl mx-auto">
       <div className="flex items-center gap-3 mb-8">
-        <div className="w-10 h-10 rounded-xl bg-[#00a651]/10 flex items-center justify-center">
-          <Stethoscope className="w-5 h-5 text-[#00a651]" />
+        <div className="w-10 h-10 rounded-xl bg-[#34d399]/10 flex items-center justify-center">
+          <Stethoscope className="w-5 h-5 text-[#34d399]" />
         </div>
         <div>
-          <h2 className="text-xl font-bold text-slate-900">Choose Your Doctor</h2>
+          <h2 className="text-xl font-bold text-white">Choose Your Doctor</h2>
           <p className="text-sm text-slate-400">Select a doctor based on availability</p>
         </div>
       </div>
@@ -576,23 +577,23 @@ function DoctorSelection({ selectedDoctor, setSelectedDoctor, onNext, onBack }: 
           const isDelayed = doc.status === "delayed";
           return (
             <div key={doc.id} onClick={() => setSelectedDoctor(doc.id)}
-              className={`relative bg-white rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 ${isSelected ? "ring-2 ring-[#00a651] shadow-[0_20px_50px_-10px_rgba(0,166,81,0.2)]" : "shadow-[0_15px_40px_-10px_rgba(0,0,0,0.07)] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.12)] border border-slate-100/80"}`}>
+              className={`relative bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 ${isSelected ? "ring-2 ring-[#34d399] shadow-[0_20px_50px_-10px_rgba(52,211,153,0.2)]" : "shadow-[0_15px_40px_-10px_rgba(0,0,0,0.07)] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.12)] border border-white/10"}`}>
               {isSelected && (
-                <div className="absolute top-4 right-4 w-7 h-7 bg-[#00a651] rounded-full flex items-center justify-center shadow-md">
+                <div className="absolute top-4 right-4 w-7 h-7 bg-[#34d399] rounded-full flex items-center justify-center shadow-md">
                   <Check className="w-4 h-4 text-white" />
                 </div>
               )}
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#004b87]/10 to-[#00a651]/10 flex items-center justify-center mb-4">
-                <Stethoscope className="w-7 h-7 text-[#004b87]" />
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#22d3ee]/10 to-[#34d399]/10 flex items-center justify-center mb-4">
+                <Stethoscope className="w-7 h-7 text-[#22d3ee]" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 mb-1">{doc.name}</h3>
-              <p className="text-sm text-slate-500 mb-4">{doc.specialty}</p>
+              <h3 className="text-base font-bold text-white mb-1">{doc.name}</h3>
+              <p className="text-sm text-slate-400 mb-4">{doc.specialty}</p>
               <div className="flex items-center gap-3 flex-wrap">
                 <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${isDelayed ? "bg-red-50 text-red-600" : "bg-emerald-50 text-emerald-600"}`}>
                   <span className={`w-1.5 h-1.5 rounded-full ${isDelayed ? "bg-red-500" : "bg-emerald-500"}`} />
                   {isDelayed ? `${doc.delay} Delay` : "On Time"}
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-xs text-slate-500 font-medium">
+                <span className="inline-flex items-center gap-1.5 text-xs text-slate-400 font-medium">
                   <Users className="w-3.5 h-3.5" /> Ahead: {doc.patientsAhead}
                 </span>
               </div>
@@ -601,11 +602,11 @@ function DoctorSelection({ selectedDoctor, setSelectedDoctor, onNext, onBack }: 
         })}
       </div>
       <div className="flex justify-between mt-10">
-        <button onClick={onBack} className="flex items-center gap-2 px-6 py-3 rounded-xl text-slate-600 font-semibold hover:bg-slate-100 transition-colors cursor-pointer">
+        <button onClick={onBack} className="flex items-center gap-2 px-6 py-3 rounded-xl text-slate-300 font-semibold hover:bg-slate-800/60 transition-colors cursor-pointer">
           <ArrowLeft className="w-4 h-4" /> Back
         </button>
         <button onClick={onNext} disabled={selectedDoctor === null}
-          className={`flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 ${selectedDoctor !== null ? "bg-[#00a651] text-white shadow-[0_10px_30px_rgba(0,166,81,0.25)] hover:shadow-[0_15px_40px_rgba(0,166,81,0.35)] hover:-translate-y-0.5 cursor-pointer" : "bg-slate-200 text-slate-400 cursor-not-allowed"}`}>
+          className={`flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 ${selectedDoctor !== null ? "bg-[#34d399] text-white shadow-[0_10px_30px_rgba(52,211,153,0.25)] hover:shadow-[0_15px_40px_rgba(52,211,153,0.35)] hover:-translate-y-0.5 cursor-pointer" : "bg-slate-700/60 text-slate-400 cursor-not-allowed"}`}>
           Confirm & Track <ArrowRight className="w-4 h-4" />
         </button>
       </div>
@@ -681,19 +682,19 @@ function LiveTracker({ appointment, onBack, onCancel, onReschedule }: { appointm
   if (actualIndex === -1) {
     return (
       <div className="max-w-2xl mx-auto space-y-6 pt-10 text-center">
-        <div className="bg-white rounded-2xl p-12 shadow-sm border border-slate-100">
+        <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-12 shadow-sm border border-white/10">
           <AlertTriangle className="w-12 h-12 text-amber-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-slate-800 mb-2">Appointment Completed</h2>
-          <p className="text-slate-500">This appointment is no longer in the active queue.</p>
-          <button onClick={onBack} className="mt-8 font-bold text-white bg-[#004b87] px-6 py-3 rounded-xl hover:shadow-lg transition-all">Return to Dashboard</button>
+          <h2 className="text-2xl font-bold text-slate-100 mb-2">Appointment Completed</h2>
+          <p className="text-slate-400">This appointment is no longer in the active queue.</p>
+          <button onClick={onBack} className="mt-8 font-bold text-white bg-[#22d3ee] px-6 py-3 rounded-xl hover:shadow-lg transition-all">Return to Dashboard</button>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6 pt-6">
-      <div className="bg-white rounded-2xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100/80 text-center">
+    <motion.div initial={{ opacity: 0, scale: 0.95, y: 15 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.5, ease: "easeOut" }} className="max-w-2xl mx-auto space-y-6 pt-6">
+      <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 text-emerald-600 text-xs font-semibold mb-6">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -702,24 +703,24 @@ function LiveTracker({ appointment, onBack, onCancel, onReschedule }: { appointm
           Queue Active
         </div>
         <p className="text-sm text-slate-400 mb-1">Welcome, {appointment.name}</p>
-        <h2 className="text-lg font-bold text-slate-700 mb-6">
-          Seeing <span className="text-[#004b87]">{doctor?.name}</span> • {doctor?.specialty}
+        <h2 className="text-lg font-bold text-slate-200 mb-6">
+          Seeing <span className="text-[#22d3ee]">{doctor?.name}</span> • {doctor?.specialty}
         </h2>
         <div className="mb-8">
           <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">Estimated Consultation</p>
           <div className="flex items-center justify-center gap-2">
-            <Clock className="w-8 h-8 text-[#004b87]" />
-            <span className="text-5xl font-extrabold text-[#004b87] tracking-tight">{timeString}</span>
-            <span className="text-2xl font-bold text-[#004b87]/60 mt-2">{ampm}</span>
+            <Clock className="w-8 h-8 text-[#22d3ee]" />
+            <span className="text-5xl font-extrabold text-[#22d3ee] tracking-tight">{timeString}</span>
+            <span className="text-2xl font-bold text-[#22d3ee]/60 mt-2">{ampm}</span>
           </div>
         </div>
         <div className="mb-2">
-          <div className="flex justify-between text-xs font-semibold text-slate-500 mb-2">
+          <div className="flex justify-between text-xs font-semibold text-slate-400 mb-2">
             <span>Your Position</span>
-            <span className="text-[#004b87]">{position} of {total}</span>
+            <span className="text-[#22d3ee]">{position} of {total}</span>
           </div>
-          <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-            <div className="h-full rounded-full bg-gradient-to-r from-[#004b87] to-[#00a651] transition-all duration-1000 ease-out" style={{ width: `${progressPercent}%` }} />
+          <div className="w-full h-3 bg-slate-800/60 rounded-full overflow-hidden">
+            <div className="h-full rounded-full bg-gradient-to-r from-[#22d3ee] to-[#34d399] transition-all duration-1000 ease-out" style={{ width: `${progressPercent}%` }} />
           </div>
         </div>
         <p className="text-xs text-slate-400 mt-2">Approximately {position * avgTime} minutes remaining</p>
@@ -727,13 +728,13 @@ function LiveTracker({ appointment, onBack, onCancel, onReschedule }: { appointm
 
       <div className="grid grid-cols-3 gap-4">
         {[
-          { icon: Activity, value: position, label: "In Queue", color: "#00a651" },
-          { icon: Users, value: total, label: "Total Patients", color: "#004b87" },
+          { icon: Activity, value: position, label: "In Queue", color: "#34d399" },
+          { icon: Users, value: total, label: "Total Patients", color: "#22d3ee" },
           { icon: CheckCircle2, value: total - position, label: "Completed", color: "#10b981" },
         ].map((c) => (
-          <div key={c.label} className="bg-white rounded-2xl p-5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.06)] border border-slate-100/80 text-center">
+          <div key={c.label} className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.06)] border border-white/10 text-center">
             <c.icon className="w-6 h-6 mx-auto mb-2" style={{ color: c.color }} />
-            <p className="text-2xl font-extrabold text-slate-800">{c.value}</p>
+            <p className="text-2xl font-extrabold text-slate-100">{c.value}</p>
             <p className="text-xs text-slate-400 font-medium">{c.label}</p>
           </div>
         ))}
@@ -754,19 +755,19 @@ function LiveTracker({ appointment, onBack, onCancel, onReschedule }: { appointm
       )}
 
       <div className="flex justify-between items-center pt-2">
-        <button onClick={onBack} className="flex items-center gap-2 px-6 py-3 rounded-xl text-slate-500 font-semibold hover:bg-slate-100 transition-colors cursor-pointer text-sm">
+        <button onClick={onBack} className="flex items-center gap-2 px-6 py-3 rounded-xl text-slate-400 font-semibold hover:bg-slate-800/60 transition-colors cursor-pointer text-sm">
           <ArrowLeft className="w-4 h-4" /> Back to Dashboard
         </button>
         <div className="flex items-center gap-3">
-          <button onClick={handleReschedule} className="flex items-center gap-2 px-6 py-3 rounded-xl text-amber-600 font-semibold hover:bg-amber-50 transition-colors cursor-pointer border border-amber-200/60 text-sm shadow-sm bg-white">
+          <button onClick={handleReschedule} className="flex items-center gap-2 px-6 py-3 rounded-xl text-amber-600 font-semibold hover:bg-amber-50 transition-colors cursor-pointer border border-amber-200/60 text-sm shadow-sm bg-slate-900/40 backdrop-blur-xl border border-white/10">
             <Clock className="w-4 h-4" /> Reschedule
           </button>
-          <button onClick={handleDelete} className="flex items-center gap-2 px-6 py-3 rounded-xl text-red-500 font-semibold hover:bg-red-50 transition-colors cursor-pointer border border-red-100 text-sm shadow-sm bg-white">
+          <button onClick={handleDelete} className="flex items-center gap-2 px-6 py-3 rounded-xl text-red-500 font-semibold hover:bg-red-50 transition-colors cursor-pointer border border-red-100 text-sm shadow-sm bg-slate-900/40 backdrop-blur-xl border border-white/10">
             <Trash2 className="w-4 h-4" /> Cancel Booking
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -790,7 +791,8 @@ function PatientFlow({ initialPhone, onBackToHome, onComplete }: { initialPhone:
       type: 'Online',
       scheduled: form.timeSlot ? form.timeSlot.split(' - ')[0] : new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       status: 'Waiting',
-      doctor_name: docName
+      doctor_name: docName,
+      description: form.description
     };
 
     const nq = [...currentQueue, newPatient];
@@ -844,7 +846,7 @@ function PatientFlow({ initialPhone, onBackToHome, onComplete }: { initialPhone:
 
       {step === 1 && (
         <div className="flex justify-center mt-6">
-          <button onClick={onBackToHome} className="flex items-center gap-2 text-sm text-slate-500 font-semibold hover:text-[#004b87] transition-colors cursor-pointer">
+          <button onClick={onBackToHome} className="flex items-center gap-2 text-sm text-slate-400 font-semibold hover:text-[#22d3ee] transition-colors cursor-pointer">
             <ArrowLeft className="w-4 h-4" /> Cancel & Back
           </button>
         </div>
@@ -874,16 +876,16 @@ function StaffLoginPage({ onLogin, onBack }: { onLogin: () => void; onBack: () =
   return (
     <main className="w-full flex-1 flex flex-col items-center justify-center py-16 px-4 relative">
       {/* Subtle Geometric Background */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#004b87 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#22d3ee 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
 
-      <div className="w-full max-w-lg bg-white rounded-[2rem] p-12 shadow-2xl border border-slate-100 relative z-10 transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,75,135,0.15)]">
+      <div className="w-full max-w-lg bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-[2rem] p-12 shadow-2xl border border-white/10 relative z-10 transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(34,211,238,0.15)]">
 
         <div className="flex flex-col items-center justify-center text-center mb-10">
           <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100/50 flex items-center justify-center mb-6 shadow-sm border border-emerald-100/50">
-            <Building2 className="w-10 h-10 text-[#00a651]" />
+            <Building2 className="w-10 h-10 text-[#34d399]" />
           </div>
-          <h1 className="text-3xl font-extrabold text-[#004b87] tracking-tight mb-2">Receptionist Portal</h1>
-          <p className="text-slate-500 font-medium">Hospital ER System Sign-in</p>
+          <h1 className="text-3xl font-extrabold text-[#22d3ee] tracking-tight mb-2">Receptionist Portal</h1>
+          <p className="text-slate-400 font-medium">Hospital ER System Sign-in</p>
         </div>
 
         {error && (
@@ -895,7 +897,7 @@ function StaffLoginPage({ onLogin, onBack }: { onLogin: () => void; onBack: () =
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-1.5">
-            <label className="text-sm font-bold text-slate-700 ml-1">Staff ID / Email</label>
+            <label className="text-sm font-bold text-slate-200 ml-1">Staff ID / Email</label>
             <div className="relative">
               <ClipboardList className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
               <input
@@ -903,14 +905,14 @@ function StaffLoginPage({ onLogin, onBack }: { onLogin: () => void; onBack: () =
                 placeholder="e.g. reception"
                 value={staffId}
                 onChange={(e) => setStaffId(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 focus:border-[#004b87] transition-all font-medium"
+                className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 focus:bg-slate-900/40 backdrop-blur-xl border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 focus:border-[#22d3ee] transition-all font-medium"
                 required
               />
             </div>
           </div>
 
           <div className="space-y-1.5 mb-8">
-            <label className="text-sm font-bold text-slate-700 ml-1">Password</label>
+            <label className="text-sm font-bold text-slate-200 ml-1">Password</label>
             <div className="relative">
               <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
               <input
@@ -918,7 +920,7 @@ function StaffLoginPage({ onLogin, onBack }: { onLogin: () => void; onBack: () =
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 focus:border-[#004b87] transition-all font-medium tracking-widest"
+                className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 focus:bg-slate-900/40 backdrop-blur-xl border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 focus:border-[#22d3ee] transition-all font-medium tracking-widest"
                 required
               />
             </div>
@@ -926,13 +928,13 @@ function StaffLoginPage({ onLogin, onBack }: { onLogin: () => void; onBack: () =
 
           <button
             type="submit"
-            className="w-full py-4 mt-6 rounded-full bg-[#00a651] text-white font-extrabold text-lg hover:bg-emerald-600 transition-all shadow-[0_10px_30px_-5px_rgba(0,166,81,0.4)] hover:shadow-[0_15px_40px_-5px_rgba(0,166,81,0.5)] hover:-translate-y-1"
+            className="w-full py-4 mt-6 rounded-full bg-[#34d399] text-white font-extrabold text-lg hover:bg-emerald-600 transition-all shadow-[0_10px_30px_-5px_rgba(52,211,153,0.4)] hover:shadow-[0_15px_40px_-5px_rgba(52,211,153,0.5)] hover:-translate-y-1"
           >
             Enter Portal
           </button>
         </form>
 
-        <div className="mt-10 pt-8 border-t border-slate-100 text-center">
+        <div className="mt-10 pt-8 border-t border-white/10 text-center">
           <p className="text-xs text-slate-400 font-medium leading-relaxed max-w-[250px] mx-auto">
             Access is restricted to authorized personnel. Session activity is strictly logged.
           </p>
@@ -940,7 +942,7 @@ function StaffLoginPage({ onLogin, onBack }: { onLogin: () => void; onBack: () =
       </div>
 
       <div className="flex justify-center mt-8 relative z-10">
-        <button onClick={onBack} className="flex items-center gap-2 text-sm text-slate-500 font-semibold hover:text-[#004b87] transition-colors cursor-pointer bg-white px-6 py-2 rounded-full shadow-sm border border-slate-100">
+        <button onClick={onBack} className="flex items-center gap-2 text-sm text-slate-400 font-semibold hover:text-[#22d3ee] transition-colors cursor-pointer bg-slate-900/40 backdrop-blur-xl border border-white/10 px-6 py-2 rounded-full shadow-sm border border-white/10">
           <ArrowLeft className="w-4 h-4" /> Return to Directory
         </button>
       </div>
@@ -967,14 +969,14 @@ function DoctorLoginPage({ onLogin, onBack }: { onLogin: () => void; onBack: () 
 
   return (
     <main className="max-w-md mx-auto px-8 pt-16 pb-20 w-full flex-1">
-      <div className="bg-white rounded-3xl p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-[#004b87]/5 rounded-bl-full z-0 flex pointer-events-none"></div>
+      <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white/10 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[#22d3ee]/5 rounded-bl-full z-0 flex pointer-events-none"></div>
         <div className="relative z-10">
-          <div className="w-16 h-16 rounded-2xl bg-[#004b87]/10 flex items-center justify-center mb-8">
-            <Stethoscope className="w-8 h-8 text-[#004b87]" />
+          <div className="w-16 h-16 rounded-2xl bg-[#22d3ee]/10 flex items-center justify-center mb-8">
+            <Stethoscope className="w-8 h-8 text-[#22d3ee]" />
           </div>
-          <h1 className="text-3xl font-bold text-slate-900 mb-2 tracking-tight">Doctor Portal</h1>
-          <p className="text-slate-500 mb-8">Secure login for medical staff</p>
+          <h1 className="text-3xl font-bold text-white mb-2 tracking-tight">Doctor Portal</h1>
+          <p className="text-slate-400 mb-8">Secure login for medical staff</p>
 
           {error && (
             <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 flex items-center gap-3 shadow-sm animate-in fade-in zoom-in duration-300">
@@ -985,13 +987,13 @@ function DoctorLoginPage({ onLogin, onBack }: { onLogin: () => void; onBack: () 
 
           <form onSubmit={handleLogin} className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Doctor ID / Email</label>
+              <label className="block text-sm font-semibold text-slate-200 mb-2">Doctor ID / Email</label>
               <div className="relative">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                 <input
                   type="text"
                   placeholder="e.g. DR-10294"
-                  className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#004b87]/20 focus:border-[#004b87] transition-all font-medium"
+                  className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 focus:bg-slate-900/40 backdrop-blur-xl border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/20 focus:border-[#22d3ee] transition-all font-medium"
                   value={doctorId}
                   onChange={(e) => setDoctorId(e.target.value)}
                   autoFocus
@@ -999,13 +1001,13 @@ function DoctorLoginPage({ onLogin, onBack }: { onLogin: () => void; onBack: () 
               </div>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Secure PIN</label>
+              <label className="block text-sm font-semibold text-slate-200 mb-2">Secure PIN</label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                 <input
                   type="password"
                   placeholder="••••••"
-                  className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#004b87]/20 focus:border-[#004b87] transition-all font-medium tracking-widest"
+                  className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 focus:bg-slate-900/40 backdrop-blur-xl border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/20 focus:border-[#22d3ee] transition-all font-medium tracking-widest"
                   value={pin}
                   onChange={(e) => setPin(e.target.value)}
                 />
@@ -1013,7 +1015,7 @@ function DoctorLoginPage({ onLogin, onBack }: { onLogin: () => void; onBack: () 
             </div>
             <button
               type="submit"
-              className="w-full py-4 rounded-xl bg-[#004b87] text-white font-bold text-lg hover:bg-[#003a6c] transition-colors shadow-[0_10px_30px_rgba(0,75,135,0.2)]"
+              className="w-full py-4 rounded-xl bg-[#22d3ee] text-white font-bold text-lg hover:bg-[#003a6c] transition-colors shadow-[0_10px_30px_rgba(34,211,238,0.2)]"
             >
               Access Dashboard
             </button>
@@ -1022,7 +1024,7 @@ function DoctorLoginPage({ onLogin, onBack }: { onLogin: () => void; onBack: () 
       </div>
 
       <div className="flex justify-center mt-8">
-        <button onClick={onBack} className="flex items-center gap-2 text-sm text-slate-500 font-semibold hover:text-[#004b87] transition-colors cursor-pointer">
+        <button onClick={onBack} className="flex items-center gap-2 text-sm text-slate-400 font-semibold hover:text-[#22d3ee] transition-colors cursor-pointer">
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </button>
       </div>
@@ -1078,9 +1080,9 @@ function ManagementAnalyticsView() {
 
   return (
     <div className="lg:col-span-12 space-y-6">
-      <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
-        <h3 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-          <BarChart2 className="w-6 h-6 text-[#004b87]" /> Patient Volume Today
+      <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-sm border border-white/10">
+        <h3 className="text-xl font-bold text-slate-100 mb-6 flex items-center gap-2">
+          <BarChart2 className="w-6 h-6 text-[#22d3ee]" /> Patient Volume Today
         </h3>
         <div className="h-96 w-full">
           <ResponsiveContainer width="100%" height="100%">
@@ -1089,7 +1091,7 @@ function ManagementAnalyticsView() {
               <XAxis dataKey="name" stroke="#94a3b8" />
               <YAxis stroke="#94a3b8" allowDecimals={false} />
               <RechartsTooltip cursor={{ fill: '#f1f5f9' }} contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }} />
-              <Bar dataKey="patients" fill="#004b87" radius={[6, 6, 0, 0]} />
+              <Bar dataKey="patients" fill="#22d3ee" radius={[6, 6, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -1114,7 +1116,8 @@ function ManagementAllPatientsView({ queue }: { queue: any[] }) {
       name: h.patient_name,
       type: h.patient_type || 'Walk-in',
       doctor_name: h.doctor_name,
-      displayStatus: 'Consulted'
+      displayStatus: 'Consulted',
+      rawPatient: null
     })),
     // Live Active Queue
     ...queue.map(q => ({
@@ -1135,16 +1138,16 @@ function ManagementAllPatientsView({ queue }: { queue: any[] }) {
 
   return (
     <div className="lg:col-span-12 space-y-6">
-      <div className="bg-white rounded-3xl p-8 shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] border border-slate-100/80">
-        <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-          <Users className="w-6 h-6 text-[#004b87]" /> Patient Master List
+      <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] border border-white/10">
+        <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+          <Users className="w-6 h-6 text-[#22d3ee]" /> Patient Master List
         </h3>
 
         {allPatients.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="border-b border-slate-100 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                <tr className="border-b border-white/10 text-xs font-bold text-slate-400 uppercase tracking-widest">
                   <th className="pb-4 pl-2 font-bold w-48">Patient</th>
                   <th className="pb-4">Type</th>
                   <th className="pb-4">Doctor</th>
@@ -1153,26 +1156,26 @@ function ManagementAllPatientsView({ queue }: { queue: any[] }) {
               </thead>
               <tbody className="text-sm font-medium">
                 {allPatients.map(p => (
-                  <tr key={p.id} className="border-b border-slate-50 last:border-0 hover:bg-slate-50/50 transition-colors">
-                    <td className="py-4 pl-2 font-bold text-slate-800">{p.name}</td>
+                  <tr key={p.id} className="border-b border-white/5 last:border-0 hover:bg-slate-800/40 border border-white/5 transition-colors">
+                    <td className="py-4 pl-2 font-bold text-slate-100">{p.name}</td>
                     <td className="py-4">
-                      <span className={`inline-block px-2 py-1 rounded-md text-xs font-bold tracking-wider ${p.type === 'Online' ? 'bg-blue-50 text-blue-600 border border-blue-100' : 'bg-slate-100 text-slate-600 border border-slate-200'}`}>
+                      <span className={`inline-block px-2 py-1 rounded-md text-xs font-bold tracking-wider ${p.type === 'Online' ? 'bg-blue-50 text-blue-600 border border-blue-100' : 'bg-slate-800/60 text-slate-300 border border-white/10'}`}>
                         {p.type}
                       </span>
                     </td>
-                    <td className="py-4 text-slate-500 font-semibold">{p.doctor_name || 'Unassigned'}</td>
+                    <td className="py-4 text-slate-400 font-semibold">{p.doctor_name || 'Unassigned'}</td>
                     <td className="py-4 text-right pr-2">
                       {p.displayStatus === 'Consulted' ? (
-                        <span className="text-xs font-bold text-slate-400 border border-slate-200 px-3 py-1 rounded-full bg-slate-50 opacity-70">Consulted</span>
+                        <span className="text-xs font-bold text-slate-400 border border-white/10 px-3 py-1 rounded-full bg-slate-800/40 border border-white/5 opacity-70">Consulted</span>
                       ) : p.displayStatus === 'Consulting' ? (
                         <span className="text-xs font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 shadow-sm px-4 py-1.5 rounded-full animate-pulse">Consulting</span>
                       ) : p.displayStatus === 'No-Show' ? (
                         <div className="flex justify-end items-center gap-2">
                           <span className="text-xs font-bold text-red-500 bg-red-50 px-3 py-1.5 rounded-full border border-red-100 shadow-sm">No-Show</span>
-                          <button onClick={() => handleRequeue(p.rawPatient)} className="text-xs font-extrabold text-[#004b87] hover:bg-[#004b87]/5 px-3 py-1 hover:shadow-sm rounded-lg border border-transparent hover:border-[#004b87]/20 transition-all cursor-pointer">Requeue</button>
+                          <button onClick={() => handleRequeue(p.rawPatient)} className="text-xs font-extrabold text-[#22d3ee] hover:bg-[#22d3ee]/5 px-3 py-1 hover:shadow-sm rounded-lg border border-transparent hover:border-[#22d3ee]/20 transition-all cursor-pointer">Requeue</button>
                         </div>
                       ) : (
-                        <span className="text-xs font-bold text-[#004b87] bg-[#004b87]/5 border border-[#004b87]/10 px-4 py-1.5 rounded-full tracking-widest">{p.displayStatus}</span>
+                        <span className="text-xs font-bold text-[#22d3ee] bg-[#22d3ee]/5 border border-[#22d3ee]/10 px-4 py-1.5 rounded-full tracking-widest">{p.displayStatus}</span>
                       )}
                     </td>
                   </tr>
@@ -1292,7 +1295,7 @@ function ManagementDashboard({ onBack }: { onBack: () => void }) {
       {/* Sidebar Navigation */}
       <div className="w-64 bg-[#002b5e] text-white flex flex-col shadow-2xl z-20 sticky top-0 h-screen">
         <div className="p-8 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-emerald-400">
+          <div className="w-10 h-10 rounded-xl bg-slate-900/40 backdrop-blur-xl border border-white/10/10 flex items-center justify-center text-emerald-400">
             <Building2 className="w-6 h-6" />
           </div>
           <div>
@@ -1301,13 +1304,13 @@ function ManagementDashboard({ onBack }: { onBack: () => void }) {
         </div>
 
         <nav className="flex-1 px-4 space-y-2 mt-4">
-          <button onClick={() => setTab('intake')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all ${tab === 'intake' ? 'bg-[#004b87] text-white shadow-inner border border-white/5' : 'text-slate-400 font-semibold hover:bg-white/5 hover:text-white cursor-pointer'}`}>
+          <button onClick={() => setTab('intake')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all ${tab === 'intake' ? 'bg-[#22d3ee] text-white shadow-inner border border-white/5' : 'text-slate-400 font-semibold hover:bg-slate-900/40 backdrop-blur-xl border border-white/10/5 hover:text-white cursor-pointer'}`}>
             <ClipboardList className={`w-5 h-5 ${tab === 'intake' ? 'text-emerald-400' : ''}`} /> Intake Management
           </button>
-          <button onClick={() => setTab('all')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all ${tab === 'all' ? 'bg-[#004b87] text-white shadow-inner border border-white/5' : 'text-slate-400 font-semibold hover:bg-white/5 hover:text-white cursor-pointer'}`}>
+          <button onClick={() => setTab('all')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all ${tab === 'all' ? 'bg-[#22d3ee] text-white shadow-inner border border-white/5' : 'text-slate-400 font-semibold hover:bg-slate-900/40 backdrop-blur-xl border border-white/10/5 hover:text-white cursor-pointer'}`}>
             <Users className={`w-5 h-5 ${tab === 'all' ? 'text-emerald-400' : ''}`} /> All Patients
           </button>
-          <button onClick={() => setTab('analytics')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all ${tab === 'analytics' ? 'bg-[#004b87] text-white shadow-inner border border-white/5' : 'text-slate-400 font-semibold hover:bg-white/5 hover:text-white cursor-pointer'}`}>
+          <button onClick={() => setTab('analytics')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all ${tab === 'analytics' ? 'bg-[#22d3ee] text-white shadow-inner border border-white/5' : 'text-slate-400 font-semibold hover:bg-slate-900/40 backdrop-blur-xl border border-white/10/5 hover:text-white cursor-pointer'}`}>
             <BarChart2 className={`w-5 h-5 ${tab === 'analytics' ? 'text-emerald-400' : ''}`} /> Analytics
           </button>
         </nav>
@@ -1322,8 +1325,8 @@ function ManagementDashboard({ onBack }: { onBack: () => void }) {
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col h-screen overflow-hidden">
         {/* Top Bar */}
-        <header className="bg-white/70 backdrop-blur-2xl border-b border-slate-200/60 px-10 py-5 flex items-center justify-between z-10 sticky top-0 shadow-sm">
-          <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">Active Shift Overview</h2>
+        <header className="bg-slate-900/40 backdrop-blur-xl border border-white/10/70 backdrop-blur-2xl border-b border-white/10/60 px-10 py-5 flex items-center justify-between z-10 sticky top-0 shadow-sm">
+          <h2 className="text-2xl font-extrabold text-white tracking-tight">Active Shift Overview</h2>
         </header>
 
         {/* Scrollable grid area */}
@@ -1332,18 +1335,18 @@ function ManagementDashboard({ onBack }: { onBack: () => void }) {
             <>
               {/* Left Column: Intake */}
               <div className="lg:col-span-4 space-y-6">
-                <div className={`bg-white rounded-3xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border transition-colors duration-500 relative overflow-hidden ${flashSuccess ? 'border-emerald-400 bg-emerald-50/10' : 'border-slate-100'}`}>
+                <div className={`bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border transition-colors duration-500 relative overflow-hidden ${flashSuccess ? 'border-emerald-400 bg-emerald-50/10' : 'border-white/10'}`}>
 
                   {flashSuccess && (
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-400/20 rounded-bl-full blur-2xl z-0 pointer-events-none"></div>
                   )}
 
                   <div className="flex items-center gap-3 mb-8 relative z-10">
-                    <div className="w-10 h-10 rounded-xl bg-[#004b87]/5 flex items-center justify-center text-[#004b87]">
+                    <div className="w-10 h-10 rounded-xl bg-[#22d3ee]/5 flex items-center justify-center text-[#22d3ee]">
                       <User className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-extrabold text-[#004b87]">Intake Registry</h3>
+                      <h3 className="text-lg font-extrabold text-[#22d3ee]">Intake Registry</h3>
                       <p className="text-xs font-semibold text-slate-400">Quick Search & Add</p>
                     </div>
                   </div>
@@ -1356,59 +1359,59 @@ function ManagementDashboard({ onBack }: { onBack: () => void }) {
 
                   <form onSubmit={handleAddQueue} className="space-y-5 relative z-10">
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Phone Search</label>
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Phone Search</label>
                       <div className="relative">
-                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#004b87]/40" />
+                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#22d3ee]/40" />
                         <input
                           type="text"
                           placeholder="10-digit number"
                           maxLength={10}
                           value={phone}
                           onChange={handlePhoneChange}
-                          className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 transition-all font-bold tracking-widest"
+                          className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 focus:bg-slate-900/40 backdrop-blur-xl border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 transition-all font-bold tracking-widest"
                           required
                         />
                       </div>
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Patient Name</label>
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Patient Name</label>
                       <input
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 transition-all font-semibold"
+                        className="w-full px-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 focus:bg-slate-900/40 backdrop-blur-xl border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 transition-all font-semibold"
                         required
                       />
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Age</label>
+                        <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Age</label>
                         <input
                           type="number"
                           value={age}
                           onChange={(e) => setAge(e.target.value)}
-                          className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 transition-all font-semibold"
+                          className="w-full px-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 focus:bg-slate-900/40 backdrop-blur-xl border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 transition-all font-semibold"
                           required
                         />
                       </div>
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Department</label>
+                        <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Department</label>
                         <select
                           value={specialty}
                           onChange={(e) => setSpecialty(e.target.value)}
-                          className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 font-semibold appearance-none"
+                          className="w-full px-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 focus:bg-slate-900/40 backdrop-blur-xl border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 font-semibold appearance-none"
                         >
                           {DEPARTMENTS.map(dept => <option key={dept}>{dept}</option>)}
                         </select>
                       </div>
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Doctor Assigned</label>
+                        <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Doctor Assigned</label>
                         <select
                           value={assignedDoctor}
                           onChange={(e) => setAssignedDoctor(e.target.value)}
-                          className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#004b87]/30 font-semibold appearance-none"
+                          className="w-full px-4 py-3.5 rounded-xl border border-white/10 bg-slate-800/40 border border-white/5 focus:bg-slate-900/40 backdrop-blur-xl border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 font-semibold appearance-none"
                         >
                           <option>Dr. Priya Sharma</option>
                           <option>Dr. Rohan Kapoor</option>
@@ -1424,7 +1427,7 @@ function ManagementDashboard({ onBack }: { onBack: () => void }) {
                         <span className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100"><Check className="h-3.5 w-3.5" strokeWidth={3} /></span>
                       </label>
                       <div>
-                        <span className="text-sm font-bold text-slate-700">Priority: Critical</span>
+                        <span className="text-sm font-bold text-slate-200">Priority: Critical</span>
                         <p className="text-[10px] text-slate-400 font-semibold leading-tight mt-0.5">Bypass standard queue logic and insert at front.</p>
                       </div>
                     </div>
@@ -1432,7 +1435,7 @@ function ManagementDashboard({ onBack }: { onBack: () => void }) {
                     <button
                       type="submit"
                       disabled={!name || phone.length < 10}
-                      className="w-full py-4 mt-4 rounded-xl bg-[#00a651] disabled:bg-slate-300 disabled:cursor-not-allowed disabled:shadow-none text-white font-extrabold text-lg transition-all shadow-[0_10px_30px_-5px_rgba(0,166,81,0.4)] hover:shadow-[0_15px_40px_-5px_rgba(0,166,81,0.5)] hover:-translate-y-1 active:translate-y-0 flex justify-center items-center gap-2"
+                      className="w-full py-4 mt-4 rounded-xl bg-[#34d399] disabled:bg-slate-300 disabled:cursor-not-allowed disabled:shadow-none text-white font-extrabold text-lg transition-all shadow-[0_10px_30px_-5px_rgba(52,211,153,0.4)] hover:shadow-[0_15px_40px_-5px_rgba(52,211,153,0.5)] hover:-translate-y-1 active:translate-y-0 flex justify-center items-center gap-2"
                     >
                       <Clipboard className="w-5 h-5" /> Add to Queue
                     </button>
@@ -1442,18 +1445,18 @@ function ManagementDashboard({ onBack }: { onBack: () => void }) {
 
               {/* Right Column: Live Queue */}
               <div className="lg:col-span-8">
-                <div className="bg-white rounded-3xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-slate-100 flex flex-col h-full">
-                  <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
+                <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white/10 flex flex-col h-full">
+                  <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-[#00a651]/10 flex items-center justify-center text-[#00a651]">
+                      <div className="w-10 h-10 rounded-xl bg-[#34d399]/10 flex items-center justify-center text-[#34d399]">
                         <Users className="w-5 h-5" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-extrabold text-[#004b87]">Live Master Queue</h3>
+                        <h3 className="text-xl font-extrabold text-[#22d3ee]">Live Master Queue</h3>
                         <p className="text-xs font-semibold text-slate-400">Linked to localStorage</p>
                       </div>
                     </div>
-                    <div className="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-sm font-bold border border-slate-200 flex items-center gap-2">
+                    <div className="px-4 py-1.5 bg-slate-800/60 text-slate-300 rounded-lg text-sm font-bold border border-white/10 flex items-center gap-2">
                       <Activity className="w-4 h-4 text-emerald-500 animate-pulse" /> {queue.length} Total Waiting
                     </div>
                   </div>
@@ -1462,7 +1465,7 @@ function ManagementDashboard({ onBack }: { onBack: () => void }) {
                     <div className="overflow-x-auto flex-1">
                       <table className="w-full text-left">
                         <thead>
-                          <tr className="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100">
+                          <tr className="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-white/10">
                             <th className="pb-4 pl-2 font-semibold w-24">Token</th>
                             <th className="pb-4 font-semibold">Patient Name</th>
                             <th className="pb-4 font-semibold">Phone Mask</th>
@@ -1475,22 +1478,22 @@ function ManagementDashboard({ onBack }: { onBack: () => void }) {
                           {queue.map((p, idx) => {
                             const isConsulting = p.status?.toLowerCase() === 'consulting';
                             return (
-                              <tr key={p.id} className={`border-b border-slate-50 last:border-0 transition-colors ${isConsulting ? 'bg-emerald-50/20' : 'hover:bg-slate-50/50'}`}>
+                              <tr key={p.id} className={`border-b border-white/5 last:border-0 transition-colors ${isConsulting ? 'bg-emerald-50/20' : 'hover:bg-slate-800/40 border border-white/5'}`}>
                                 <td className="py-4 pl-2">
-                                  <span className={`inline-flex items-center justify-center min-w-[3.5rem] px-2 py-1 rounded text-sm font-extrabold ${isConsulting ? 'bg-emerald-100 text-emerald-800' : 'bg-[#004b87]/10 text-[#004b87]'}`}>
+                                  <span className={`inline-flex items-center justify-center min-w-[3.5rem] px-2 py-1 rounded text-sm font-extrabold ${isConsulting ? 'bg-emerald-100 text-emerald-800' : 'bg-[#22d3ee]/10 text-[#22d3ee]'}`}>
                                     #{p.id}
                                   </span>
                                   {isConsulting && <span className="block mt-1 text-[10px] uppercase font-bold text-emerald-600 animate-pulse text-center">In Room</span>}
                                 </td>
-                                <td className="py-4 text-slate-800 font-bold">{p.name}</td>
+                                <td className="py-4 text-slate-100 font-bold">{p.name}</td>
                                 <td className="py-4 text-slate-400 font-mono text-xs">{p.phone || 'xxx-xxx-xxxx'}</td>
                                 <td className="py-4">
-                                  <span className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-extrabold tracking-wide ${p.type === 'Online' ? 'bg-blue-50 text-blue-600 border border-blue-100' : 'bg-slate-100 text-slate-600 border border-slate-200'}`}>
+                                  <span className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-extrabold tracking-wide ${p.type === 'Online' ? 'bg-blue-50 text-blue-600 border border-blue-100' : 'bg-slate-800/60 text-slate-300 border border-white/10'}`}>
                                     {p.type}
                                   </span>
                                 </td>
                                 <td className="py-4">
-                                  <span className="text-slate-600 font-semibold text-xs">{p.doctor_name || 'Unassigned'}</span>
+                                  <span className="text-slate-300 font-semibold text-xs">{p.doctor_name || 'Unassigned'}</span>
                                 </td>
                                 <td className="py-4 text-right pr-2">
                                   {isConsulting ? (
@@ -1499,11 +1502,11 @@ function ManagementDashboard({ onBack }: { onBack: () => void }) {
                                     <span className="text-xs font-bold text-red-500 px-4 py-2 opacity-50">No-Show</span>
                                   ) : (
                                     <div className="flex justify-end items-center gap-1.5">
-                                      <span className="text-xs font-bold text-[#004b87] bg-[#004b87]/5 border border-[#004b87]/10 px-3 py-1.5 rounded-full tracking-widest">{p.scheduled}</span>
-                                      <button onClick={() => handlePing(p)} title="Ping via SMS" className="ml-2 w-8 h-8 rounded-full border border-slate-200 text-amber-500 hover:bg-amber-50 hover:border-amber-200 flex items-center justify-center transition-all bg-white shadow-sm cursor-pointer hover:shadow">
+                                      <span className="text-xs font-bold text-[#22d3ee] bg-[#22d3ee]/5 border border-[#22d3ee]/10 px-3 py-1.5 rounded-full tracking-widest">{p.scheduled}</span>
+                                      <button onClick={() => handlePing(p)} title="Ping via SMS" className="ml-2 w-8 h-8 rounded-full border border-white/10 text-amber-500 hover:bg-amber-50 hover:border-amber-200 flex items-center justify-center transition-all bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-sm cursor-pointer hover:shadow">
                                         <Bell className="w-4 h-4" />
                                       </button>
-                                      <button onClick={() => handleNoShow(p)} title="Mark No-Show" className="w-8 h-8 rounded-full border border-slate-200 text-red-400 hover:bg-red-50 hover:border-red-200 flex items-center justify-center transition-all bg-white shadow-sm cursor-pointer hover:shadow">
+                                      <button onClick={() => handleNoShow(p)} title="Mark No-Show" className="w-8 h-8 rounded-full border border-white/10 text-red-400 hover:bg-red-50 hover:border-red-200 flex items-center justify-center transition-all bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-sm cursor-pointer hover:shadow">
                                         <UserMinus className="w-4 h-4" />
                                       </button>
                                     </div>
@@ -1619,57 +1622,57 @@ function DoctorDashboard({ onBack }: { onBack: () => void }) {
     <main className="max-w-7xl mx-auto px-8 py-8 w-full flex-1">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Live Command Center</h1>
-          <p className="text-slate-500 mt-1 font-medium">Cardiology • Dr. Priya Sharma</p>
+          <h1 className="text-3xl font-extrabold text-white tracking-tight">Live Command Center</h1>
+          <p className="text-slate-400 mt-1 font-medium">Cardiology • Dr. Priya Sharma</p>
         </div>
-        <button onClick={onBack} className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 text-slate-600 font-semibold hover:bg-slate-200 transition-colors cursor-pointer text-sm">
+        <button onClick={onBack} className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800/60 text-slate-300 font-semibold hover:bg-slate-700/60 transition-colors cursor-pointer text-sm">
           <ArrowLeft className="w-4 h-4" /> Exit Dashboard
         </button>
       </div>
 
       {/* Header Stats */}
       <div className="grid grid-cols-3 gap-6 mb-8">
-        <div className="bg-white rounded-2xl p-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-slate-100/80">
+        <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-white/10">
           <div className="flex justify-between items-start mb-4">
-            <h3 className="text-sm font-bold text-slate-500">Total Waiting</h3>
-            <div className="w-8 h-8 rounded-lg bg-[#004b87]/10 flex items-center justify-center"><Users className="w-4 h-4 text-[#004b87]" /></div>
+            <h3 className="text-sm font-bold text-slate-400">Total Waiting</h3>
+            <div className="w-8 h-8 rounded-lg bg-[#22d3ee]/10 flex items-center justify-center"><Users className="w-4 h-4 text-[#22d3ee]" /></div>
           </div>
-          <p className="text-3xl font-extrabold text-[#004b87]">{queue.length}</p>
+          <p className="text-3xl font-extrabold text-[#22d3ee]">{queue.length}</p>
         </div>
-        <div className="bg-white rounded-2xl p-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-slate-100/80">
+        <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-white/10">
           <div className="flex justify-between items-start mb-4">
-            <h3 className="text-sm font-bold text-slate-500">Avg. Consultation</h3>
-            <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${avgTime > 15 ? 'bg-amber-100' : 'bg-[#00a651]/10'}`}>
-              <Activity className={`w-4 h-4 ${avgTime > 15 ? 'text-amber-600' : 'text-[#00a651]'}`} />
+            <h3 className="text-sm font-bold text-slate-400">Avg. Consultation</h3>
+            <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${avgTime > 15 ? 'bg-amber-100' : 'bg-[#34d399]/10'}`}>
+              <Activity className={`w-4 h-4 ${avgTime > 15 ? 'text-amber-600' : 'text-[#34d399]'}`} />
             </div>
           </div>
-          <p className={`text-3xl font-extrabold ${avgTime > 15 ? 'text-amber-600' : 'text-slate-900'}`}>{avgTime}m</p>
+          <p className={`text-3xl font-extrabold ${avgTime > 15 ? 'text-amber-600' : 'text-white'}`}>{avgTime}m</p>
         </div>
-        <div className="bg-white rounded-2xl p-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-slate-100/80 relative overflow-hidden">
+        <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-white/10 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -mr-10 -mt-10 z-0"></div>
           <div className="relative z-10 flex justify-between items-start mb-4">
-            <h3 className="text-sm font-bold text-slate-500">Shift Status</h3>
+            <h3 className="text-sm font-bold text-slate-400">Shift Status</h3>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">
               <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
               Live
             </div>
           </div>
-          <p className="text-xl font-bold text-slate-800 relative z-10">Queue active</p>
+          <p className="text-xl font-bold text-slate-100 relative z-10">Queue active</p>
         </div>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-8">
           {/* Main Current Patient Card */}
-          <div className="bg-white rounded-3xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] border border-slate-100/80 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#004b87] to-[#00a651]"></div>
+          <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] border border-white/10 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#22d3ee] to-[#34d399]"></div>
             <div className="flex justify-between items-start mb-8">
               <div>
-                <span className="inline-block px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold tracking-widest uppercase rounded-md mb-3">Current Patient</span>
+                <span className="inline-block px-3 py-1 bg-slate-800/60 text-slate-300 text-xs font-bold tracking-widest uppercase rounded-md mb-3">Current Patient</span>
                 {currentPatient ? (
                   <>
-                    <h2 className="text-4xl font-extrabold text-slate-900 mb-2">{currentPatient.name}</h2>
-                    <p className="text-lg text-slate-500 font-medium">Token: #{currentPatient.id} • {currentPatient.type}</p>
+                    <h2 className="text-4xl font-extrabold text-white mb-2">{currentPatient.name}</h2>
+                    <p className="text-lg text-slate-400 font-medium">Token: #{currentPatient.id} • {currentPatient.type}</p>
                   </>
                 ) : (
                   <h2 className="text-2xl font-bold text-slate-400">Queue Empty</h2>
@@ -1678,7 +1681,7 @@ function DoctorDashboard({ onBack }: { onBack: () => void }) {
               {currentPatient && (
                 <div className="text-right">
                   <span className="block text-sm font-bold text-slate-400 mb-1">Elapsed Time</span>
-                  <div className={`flex items-baseline gap-1 ${elapsed > 15 ? 'text-amber-600' : 'text-[#004b87]'}`}>
+                  <div className={`flex items-baseline gap-1 ${elapsed > 15 ? 'text-amber-600' : 'text-[#22d3ee]'}`}>
                     <Timer className="w-5 h-5 mr-1" />
                     <span className="text-4xl font-extrabold">{elapsed}</span><span className="text-xl font-bold">m</span>
                   </div>
@@ -1689,16 +1692,16 @@ function DoctorDashboard({ onBack }: { onBack: () => void }) {
             {currentPatient && (
               <div className="flex gap-4">
                 {!consultationStart ? (
-                  <button onClick={handleStart} className="flex-1 flex items-center justify-center gap-2 py-5 rounded-2xl bg-[#004b87] text-white font-bold text-lg shadow-[0_10px_30px_rgba(0,75,135,0.25)] hover:shadow-[0_15px_40px_rgba(0,75,135,0.35)] hover:-translate-y-0.5 transition-all cursor-pointer">
+                  <button onClick={handleStart} className="flex-1 flex items-center justify-center gap-2 py-5 rounded-2xl bg-[#22d3ee] text-white font-bold text-lg shadow-[0_10px_30px_rgba(34,211,238,0.25)] hover:shadow-[0_15px_40px_rgba(34,211,238,0.35)] hover:-translate-y-0.5 transition-all cursor-pointer">
                     <Play className="w-5 h-5" /> Start Consultation
                   </button>
                 ) : (
-                  <button onClick={() => handleNextPatient(0)} className="flex-1 flex items-center justify-center gap-2 py-5 rounded-2xl bg-[#00a651] text-white font-bold text-lg shadow-[0_10px_30px_rgba(0,166,81,0.25)] hover:shadow-[0_15px_40px_rgba(0,166,81,0.35)] hover:-translate-y-0.5 transition-all cursor-pointer">
+                  <button onClick={() => handleNextPatient(0)} className="flex-1 flex items-center justify-center gap-2 py-5 rounded-2xl bg-[#34d399] text-white font-bold text-lg shadow-[0_10px_30px_rgba(52,211,153,0.25)] hover:shadow-[0_15px_40px_rgba(52,211,153,0.35)] hover:-translate-y-0.5 transition-all cursor-pointer">
                     <CheckCircle2 className="w-5 h-5" /> Complete & Call Next
                   </button>
                 )}
                 {/* Demo winning button: Instantly simulate a 25 min long consultation to bump the average and show the ETA increase on the other tab */}
-                <button onClick={() => handleNextPatient(25)} title="Test: Complete this patient taking 25 minutes!" className="px-6 py-5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold flex items-center gap-2 transition-colors cursor-pointer border border-slate-200">
+                <button onClick={() => handleNextPatient(25)} title="Test: Complete this patient taking 25 minutes!" className="px-6 py-5 rounded-2xl bg-slate-800/60 hover:bg-slate-700/60 text-slate-200 font-bold flex items-center gap-2 transition-colors cursor-pointer border border-white/10">
                   <SkipForward className="w-5 h-5" /> Simulate Long (25m)
                 </button>
               </div>
@@ -1706,15 +1709,15 @@ function DoctorDashboard({ onBack }: { onBack: () => void }) {
           </div>
 
           {/* Live Queue Table */}
-          <div className="bg-white rounded-3xl p-8 shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] border border-slate-100/80">
-            <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-              <ClipboardList className="w-5 h-5 text-[#004b87]" /> Live Queue
+          <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] border border-white/10">
+            <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+              <ClipboardList className="w-5 h-5 text-[#22d3ee]" /> Live Queue
             </h3>
             {upcomingQueue.length > 0 ? (
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="border-b border-slate-100 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                    <tr className="border-b border-white/10 text-xs font-bold text-slate-400 uppercase tracking-wider">
                       <th className="pb-3 font-semibold">Token</th>
                       <th className="pb-3 font-semibold">Name</th>
                       <th className="pb-3 font-semibold">Type</th>
@@ -1723,21 +1726,34 @@ function DoctorDashboard({ onBack }: { onBack: () => void }) {
                     </tr>
                   </thead>
                   <tbody className="text-sm font-medium">
+                    <AnimatePresence mode="popLayout">
                     {upcomingQueue.map((p, idx) => {
                       const isCurrent = p.id === currentPatient?.id;
                       return (
-                        <tr key={p.id} className={`border-b border-slate-50 last:border-0 hover:bg-slate-50/50 transition-colors ${isCurrent ? 'bg-emerald-50/30' : ''}`}>
-                          <td className="py-4 text-[#004b87] font-bold">
+                        <motion.tr 
+                          key={p.id}
+                          layout
+                          initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, x: -30, scale: 0.95, transition: { duration: 0.2 } }}
+                          transition={{ duration: 0.3 }}
+                          className={`border-b border-white/5 last:border-0 hover:bg-slate-800/40 transition-colors ${isCurrent ? 'bg-emerald-50/10' : ''}`}>
+                          <td className="py-4 text-[#22d3ee] font-bold">
                             #{p.id}
                             {isCurrent && <span className="ml-2 inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700 uppercase tracking-widest animate-pulse">In Room</span>}
                           </td>
-                          <td className="py-4 text-slate-700">{p.name}</td>
                           <td className="py-4">
-                            <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-bold ${p.type === 'Online' ? 'bg-blue-50 text-blue-600' : 'bg-slate-100 text-slate-600'}`}>
+                            <span className="text-slate-200 font-bold block">{p.name}</span>
+                            {p.description && (
+                               <span className="text-xs text-slate-400 font-medium block mt-1 line-clamp-1 max-w-[200px]" title={p.description}>"{p.description}"</span>
+                            )}
+                          </td>
+                          <td className="py-4">
+                            <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-bold ${p.type === 'Online' ? 'bg-blue-50 text-blue-600' : 'bg-slate-800/60 text-slate-300'}`}>
                               {p.type}
                             </span>
                           </td>
-                          <td className="py-4 text-slate-500">{p.scheduled}</td>
+                          <td className="py-4 text-slate-400">{p.scheduled}</td>
                           <td className="py-4 text-right">
                             {isCurrent ? (
                               <span className="text-xs font-bold text-emerald-600 px-3 py-1.5">—</span>
@@ -1747,14 +1763,15 @@ function DoctorDashboard({ onBack }: { onBack: () => void }) {
                               </button>
                             )}
                           </td>
-                        </tr>
+                        </motion.tr>
                       );
                     })}
+                    </AnimatePresence>
                   </tbody>
                 </table>
               </div>
             ) : (
-              <p className="text-slate-500 font-medium">No upcoming patients in the queue.</p>
+              <p className="text-slate-400 font-medium">No upcoming patients in the queue.</p>
             )}
           </div>
         </div>
@@ -1808,22 +1825,22 @@ function RescheduleModal({ appointment, onClose, onConfirm }: { appointment: any
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm px-4">
-      <div className="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl animate-in fade-in zoom-in duration-200">
+      <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 max-w-sm w-full shadow-2xl animate-in fade-in zoom-in duration-200">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-xl font-bold text-slate-800">Reschedule</h3>
-          <button onClick={onClose} className="text-slate-400 hover:text-slate-600 transition-colors"><X className="w-5 h-5" /></button>
+          <h3 className="text-xl font-bold text-slate-100">Reschedule</h3>
+          <button onClick={onClose} className="text-slate-400 hover:text-slate-300 transition-colors"><X className="w-5 h-5" /></button>
         </div>
-        <p className="text-sm text-slate-500 mb-6">Select a new time for your appointment with <span className="font-semibold text-slate-700">{appointment.doctor_name || "your doctor"}</span>.</p>
+        <p className="text-sm text-slate-400 mb-6">Select a new time for your appointment with <span className="font-semibold text-slate-200">{appointment.doctor_name || "your doctor"}</span>.</p>
 
         <div className="mb-8">
-          <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">New Time Slot</label>
+          <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">New Time Slot</label>
           <div className="relative flex items-center">
             <Clock className="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none" />
             <input
               type="time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
-              className="w-full text-xl font-bold text-[#004b87] border-2 border-slate-200 rounded-xl py-3 pl-12 pr-4 focus:border-[#004b87] focus:ring-4 focus:ring-[#004b87]/10 outline-none transition-all"
+              className="w-full text-xl font-bold text-[#22d3ee] border-2 border-white/10 rounded-xl py-3 pl-12 pr-4 focus:border-[#22d3ee] focus:ring-4 focus:ring-[#22d3ee]/10 outline-none transition-all"
             />
           </div>
         </div>
@@ -1841,7 +1858,7 @@ function RescheduleModal({ appointment, onClose, onConfirm }: { appointment: any
             }
           }}
           disabled={!time}
-          className="w-full py-3.5 rounded-xl font-bold text-white bg-[#004b87] hover:bg-[#003a6c] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+          className="w-full py-3.5 rounded-xl font-bold text-white bg-[#22d3ee] hover:bg-[#003a6c] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
         >
           Confirm Reschedule
         </button>
@@ -1872,14 +1889,14 @@ function PatientDashboard({ phone, onNew, onTrack, onCancel, onReschedule, onLog
     <main className="max-w-5xl mx-auto px-8 py-16" style={{ minHeight: "calc(100vh - 180px)" }}>
       <div className="flex flex-col md:flex-row justify-between md:items-end mb-10 gap-6">
         <div>
-          <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight">My Appointments</h1>
-          <p className="text-slate-500 mt-2 font-medium flex items-center gap-2"><Lock className="w-4 h-4 text-emerald-500" /> Logged in securely as {phone}</p>
+          <h1 className="text-4xl font-extrabold text-white tracking-tight">My Appointments</h1>
+          <p className="text-slate-400 mt-2 font-medium flex items-center gap-2"><Lock className="w-4 h-4 text-emerald-500" /> Logged in securely as {phone}</p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <button onClick={onLogout} className="px-5 py-3 rounded-xl border-2 border-slate-200 text-slate-600 font-bold hover:bg-slate-50 hover:text-slate-900 transition-colors shadow-sm cursor-pointer">
+          <button onClick={onLogout} className="px-5 py-3 rounded-xl border-2 border-white/10 text-slate-300 font-bold hover:bg-slate-800/40 border border-white/5 hover:text-white transition-colors shadow-sm cursor-pointer">
             Sign Out
           </button>
-          <button onClick={onNew} className="bg-[#004b87] text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-[#003a6c] transition-all shadow-[0_10px_30px_rgba(0,75,135,0.2)] hover:shadow-[0_15px_40px_rgba(0,75,135,0.3)] hover:-translate-y-0.5 cursor-pointer">
+          <button onClick={onNew} className="bg-[#22d3ee] text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-[#003a6c] transition-all shadow-[0_10px_30px_rgba(34,211,238,0.2)] hover:shadow-[0_15px_40px_rgba(34,211,238,0.3)] hover:-translate-y-0.5 cursor-pointer">
             <CalendarDays className="w-5 h-5" /> Book Appointment
           </button>
         </div>
@@ -1887,33 +1904,33 @@ function PatientDashboard({ phone, onNew, onTrack, onCancel, onReschedule, onLog
 
       <div className="space-y-4">
         {queue.length === 0 ? (
-          <div className="text-center py-20 bg-white rounded-3xl border border-slate-100 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]">
-            <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="text-center py-20 bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl border border-white/10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]">
+            <div className="w-20 h-20 bg-slate-800/40 border border-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
               <CalendarDays className="w-8 h-8 text-slate-300" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-800 mb-2">No active appointments</h3>
+            <h3 className="text-2xl font-bold text-slate-100 mb-2">No active appointments</h3>
             <p className="text-slate-400 mb-8 max-w-sm mx-auto">You don't have any upcoming visits booked. Your history and past visits are safely archived.</p>
-            <button onClick={onNew} className="text-[#004b87] font-bold hover:underline flex items-center gap-1 justify-center mx-auto">Book your first appointment <ArrowRight className="w-4 h-4" /></button>
+            <button onClick={onNew} className="text-[#22d3ee] font-bold hover:underline flex items-center gap-1 justify-center mx-auto">Book your first appointment <ArrowRight className="w-4 h-4" /></button>
           </div>
         ) : (
           <div className="grid md:grid-cols-2 gap-6">
             {queue.map(apt => (
-              <div key={apt.id} className="bg-white p-8 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-slate-100 hover:border-[#004b87]/30 hover:shadow-[0_20px_60px_-15px_rgba(0,75,135,0.1)] transition-all flex flex-col justify-between group">
+              <div key={apt.id} className="bg-slate-900/40 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white/10 hover:border-[#22d3ee]/30 hover:shadow-[0_20px_60px_-15px_rgba(34,211,238,0.1)] transition-all flex flex-col justify-between group">
                 <div className="flex justify-between items-start mb-6">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-[#004b87] to-[#0073cc] rounded-2xl flex items-center justify-center text-white shadow-md shadow-[#004b87]/20">
+                    <div className="w-14 h-14 bg-gradient-to-br from-[#22d3ee] to-[#0073cc] rounded-2xl flex items-center justify-center text-white shadow-md shadow-[#22d3ee]/20">
                       <Stethoscope className="w-7 h-7" />
                     </div>
                     <div>
-                      <h2 className="text-xl font-extrabold text-slate-900">{apt.name} <span className="text-xs font-bold text-slate-400 ml-2 bg-slate-100 px-2 py-1 rounded">#{apt.id}</span></h2>
-                      <p className="text-slate-500 font-medium mt-1">With <span className="text-slate-700 font-bold">{apt.doctor_name}</span></p>
+                      <h2 className="text-xl font-extrabold text-white">{apt.name} <span className="text-xs font-bold text-slate-400 ml-2 bg-slate-800/60 px-2 py-1 rounded">#{apt.id}</span></h2>
+                      <p className="text-slate-400 font-medium mt-1">With <span className="text-slate-200 font-bold">{apt.doctor_name}</span></p>
                     </div>
                   </div>
                 </div>
-                <div className="pt-6 border-t border-slate-100 flex justify-between items-center">
+                <div className="pt-6 border-t border-white/10 flex justify-between items-center">
                   <div>
                     <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Scheduled for</span>
-                    <p className="text-base font-extrabold text-[#004b87]">{apt.scheduled}</p>
+                    <p className="text-base font-extrabold text-[#22d3ee]">{apt.scheduled}</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <button onClick={() => onReschedule(apt.id)} className="p-2.5 rounded-xl text-slate-400 hover:text-amber-500 hover:bg-amber-50 transition-colors cursor-pointer" title="Reschedule">
@@ -1922,7 +1939,7 @@ function PatientDashboard({ phone, onNew, onTrack, onCancel, onReschedule, onLog
                     <button onClick={() => onCancel(apt.id)} className="p-2.5 rounded-xl text-slate-400 hover:text-red-500 hover:bg-red-50 transition-colors cursor-pointer" title="Cancel Booking">
                       <Trash2 className="w-4 h-4" />
                     </button>
-                    <button onClick={() => onTrack(apt)} className="text-sm font-bold text-white bg-[#00a651] hover:bg-[#009045] px-5 py-2.5 rounded-xl shadow-md transition-all cursor-pointer group-hover:-translate-y-0.5 ml-1">
+                    <button onClick={() => onTrack(apt)} className="text-sm font-bold text-white bg-[#34d399] hover:bg-[#009045] px-5 py-2.5 rounded-xl shadow-md transition-all cursor-pointer group-hover:-translate-y-0.5 ml-1">
                       Track Now
                     </button>
                   </div>
@@ -1941,11 +1958,11 @@ function PatientDashboard({ phone, onNew, onTrack, onCancel, onReschedule, onLog
    ═══════════════════════════════════════════════════════════ */
 function Footer() {
   return (
-    <footer className="border-t border-slate-100 bg-white py-8 mt-auto">
+    <footer className="border-t border-white/10 bg-slate-900/40 backdrop-blur-xl border border-white/10 py-8 mt-auto">
       <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-slate-400 text-xs">
         <div className="flex items-center gap-2 mb-3 md:mb-0">
           <div className="w-5 h-5 rounded bg-slate-300 flex items-center justify-center text-white font-bold text-[10px]">M</div>
-          <span className="font-semibold text-slate-500">MediQueue</span>
+          <span className="font-semibold text-slate-400">MediQueue</span>
         </div>
         <p>© 2026 MediQueue Inc. All rights reserved.</p>
       </div>
@@ -2039,7 +2056,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen ${page === 'management-dashboard' ? 'bg-[#f4f7fb]' : 'bg-[#f8f9fc]'} font-sans selection:bg-[#004b87] selection:text-white flex flex-col`}>
+    <div className="min-h-screen text-slate-200 font-sans selection:bg-[#22d3ee]/30 selection:text-[#22d3ee] flex flex-col relative z-10">
       {page !== "management-dashboard" && <Navbar onLogoClick={goHome} />}
 
       {page === "landing" && <LandingPage onNavigate={(p) => setPage(p as any)} />}
