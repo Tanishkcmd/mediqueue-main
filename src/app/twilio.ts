@@ -8,7 +8,7 @@ export const sendRealSMS = async (to: string, body: string) => {
     return false;
   }
 
-  const url = `https://api.twilio.com/2010-04-01/Accounts/${sid}/Messages.json`;
+  const url = `/api/twilio/2010-04-01/Accounts/${sid}/Messages.json`;
   
   const params = new URLSearchParams();
   // Ensure the phone number has a + country code if needed
